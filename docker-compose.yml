@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - /Users/saiyaswanthsomavarapu/Desktop/Learning/apiService/postgres_data:/var/lib/postgresql/data
+      - <postgres_data>:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
@@ -30,11 +30,11 @@ services:
     environment:
       # DATABASE_URL: postgresql+asyncpg://user:password@db:5432/mydb
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres  # Fixed: matches db password
-      - POSTGRES_HOST=db             # Fixed: use service name instead of localhost
+      - POSTGRES_PASSWORD=postgres 
+      - POSTGRES_HOST=db             
       - POSTGRES_PORT=5432
       - POSTGRES_DB=mydb
-      - PYTHONUNBUFFERED=1           # Show Python output immediately
+      - PYTHONUNBUFFERED=1           
     volumes:
       - .:/app
     command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--log-level", "debug"]

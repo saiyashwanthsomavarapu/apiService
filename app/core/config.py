@@ -74,7 +74,6 @@ class Settings():
         return self.database_url.replace("postgresql://", "postgresql+asyncpg://")
     
 
-@lru_cache()
 def get_settings() -> Settings:
     """
     Get cached application settings.

@@ -4,7 +4,7 @@ This is a FastAPI backend for managing events, categories, and bookings with Pos
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ├── app/
 │ ├── auth / # Authentication logic, jwt logic
@@ -26,7 +26,7 @@ Before running this project, make sure you have:
 
 - Python 3.10+
 - PostgreSQL installed or Docker installed
-- `pip`
+- `pip` to install packages
 - Docker & Docker Compose (for containerized setup)
 
 ---
@@ -44,11 +44,11 @@ pip install -r requirements.txt
 ### Run the App
 
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 - The app will be available at http://localhost:8000
 
-## Running with Docker Componse
+## Running with Docker Compose
 
 Before starting the server, follow these steps:
 - Create a postgres_data folder inside the root of the app directory.
