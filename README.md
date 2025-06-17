@@ -81,6 +81,21 @@ docker-compose down
 
 # By default login details available in DB 
 
+### postgres DB login
+For local server
+```bhash
+user: postgres
+host: localhost or 127.0.0.1
+password: postgres
+```
+
+For docker server
+```bhash
+user: postgres
+host: 0.0.0.0
+password: postgres
+```
+
 ### Admin Logins details
 
 ```bhash
