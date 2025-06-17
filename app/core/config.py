@@ -40,6 +40,14 @@ class Settings():
             "is_admin": True,
             "is_verified": True
         },
+             {
+            "email": "admin1@example.com",
+            "password": "admin123",
+            "firstname": "admin1",
+            "lastname": "System Administrator",
+            "is_admin": True,
+            "is_verified": True
+        },
         {
             "email": "user@example.com", 
             "password": "user123",

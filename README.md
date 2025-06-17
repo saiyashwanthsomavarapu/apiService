@@ -79,6 +79,33 @@ docker-compose down
 ```
 
 
+# By default login details available in DB 
+
+### Admin Logins details
+
+```bhash
+
+// Admin 1
+username: admin@example.com
+passowrd: admin123
+
+// Admin 2
+username: admin1@example.com
+password: admin123
+```
+
+### Non Admin Login details
+```bhash
+
+// user
+username: user@example.com
+passowrd: user23
+
+// Test
+username: test@example.com
+password: test123
+```
+
 ## API DOCS
 
 - Swagger UI: http://0.0.0.0:8000/docs

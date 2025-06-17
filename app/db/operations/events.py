@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from sqlalchemy import case, delete, null, update, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select

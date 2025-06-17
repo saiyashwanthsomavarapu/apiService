@@ -1,7 +1,8 @@
 from fastapi import status
-from  typing import Optional, Dict, Any
 
-class UserNotFoundException(BaseException):
+from app.exceptions.event_exceptions import BaseCustomException
+
+class UserNotFoundException(BaseCustomException):
     def __init__(self, user_id: int):
         super().__init__(
             message=f"User with ID {user_id} not found",
@@ -9,7 +10,7 @@ class UserNotFoundException(BaseException):
             details={"user_id": user_id}
         )
 
-class UserAlreadyExistsException(BaseException):
+class UserAlreadyExistsException(BaseCustomException):
     def __init__(self, user_id: int):
         super().__init__(
             message=f"User with ID {user_id} already exists",
@@ -17,7 +18,7 @@ class UserAlreadyExistsException(BaseException):
             details={"user_id": user_id}
         )
     
-class EmailAlreadyExistsException(BaseException):
+class EmailAlreadyExistsException(BaseCustomException):
     def __init__(self, email: str):
         super().__init__(
             message=f"User with email {email} already exists",
@@ -25,7 +26,7 @@ class EmailAlreadyExistsException(BaseException):
             details={"email": email}
         )
     
-class EmailNotFoundException(BaseException):
+class EmailNotFoundException(BaseCustomException):
     def __init__(self, email: str):
         super().__init__(
             message=f"User with email {email} not found",
@@ -34,7 +35,7 @@ class EmailNotFoundException(BaseException):
         )
 
 
-class AuthenticationException(BaseException):
+class AuthenticationException(BaseCustomException):
     def __init__(self, message: str):
         super().__init__(
             message=message, 

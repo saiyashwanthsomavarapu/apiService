@@ -15,7 +15,7 @@ async def custom_exception_handler(request: Request, exc: BaseCustomException):
             message=exc.message,
             status_code=exc.status_code,
             details=exc.details,
-            timestamp=datetime.now(),
+            timestamp=datetime.now().isoformat(),
             path=str(request.url.path)
         )
     )
@@ -39,7 +39,7 @@ async def sqlalchemy_exception_handler(request: Request, exc: SQLAlchemyError):
             message=message,
             status_code=status_code,
             details={"error_type": type(exc).__name__},
-            timestamp=datetime.now(),
+            timestamp=datetime.now().isoformat(),
             path=str(request.url.path)
         )
     )
@@ -55,7 +55,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
             message="Validation failed",
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             details={"validation_errors": exc.errors()},
-            timestamp=datetime.now(),
+            timestamp=datetime.now().isoformat(),
             path=str(request.url.path)
         )
     )
@@ -66,11 +66,12 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     )
 
 async def http_exception_handler(request: Request, exc: HTTPException):
+    logger.error(f"HTTP Exception: {exc.detail}, {exc.status_code}, date: {datetime.now()}, path: {request.url.path}")
     error_response = ErrorResponse(
         error=ErrorDetail(
             message=exc.detail,
             status_code=exc.status_code,
-            timestamp=datetime.now(),
+            timestamp=datetime.now().isoformat(),
             path=str(request.url.path)
         )
     )
